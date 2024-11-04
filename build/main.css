@@ -1,138 +1,159 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Familjen Grotesk, serif;
+/* Fundo principal que cobre a tela inteira */
+.background-container {
+  background-image: url('/images/fundo/w99_bg_white.jpg'); /* Fundo padrão */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
 
-body {
-  background-color: black;
-  color: #eee;
-  font-size: 12px;
+/* Estilos de layout */
+header, .hero, .watches, .color-selection {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 header {
-  position: sticky;
-  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1140px;
-  max-width: 80%;
-  margin: auto;
-  height: 50px;
-  z-index: 100;
-}
-header img {
-  height: 50px;
-}
-header nav a {
-  text-decoration: none;
-  color: #eee;
-  margin-right: 40px;
+  margin-bottom: 20px;
 }
 
-.carousel {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  margin-top: -50px;
-  position: relative;
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
 }
-.carousel .list .item {
-  position: absolute;
-  inset: 0 0 0 0;
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
-.carousel .list .item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.carousel .list .item .content {
-  position: absolute;
-  top: 20%;
-  width: 1140px;
-  max-width: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-right: 30%;
-  box-sizing: border-box;
-  color: #eee;
-  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2666666667);
-}
-.carousel .list .item .content .author {
-  font-weight: bold;
-  letter-spacing: 10px;
-}
-.carousel .list .item .content .title,
-.carousel .list .item .content .topic {
-  font-weight: bold;
-  font-size: 5em;
-  line-height: 1.3em;
-}
-.carousel .list .item .content .topic {
-  color: rgb(55, 132, 248);
-}
-.carousel .list .item .content .watch {
-  height: 300px;
-  width: 1140px;
+
+/* Seção dos Relógios */
+.watches {
   display: flex;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-.carousel .list .item .content .watch img {
+
+.watch-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Ajuste para exibir as imagens dos relógios lado a lado */
+.watch-section .images {
+  display: flex; /* Faz as imagens ficarem lado a lado */
+  gap: 10px; /* Espaço entre as imagens */
+}
+
+.watch-section .images img {
   height: 300px;
   width: auto;
-  transition: transform 0.3s ease, z-index 0.3s ease;
+  object-fit: cover;
 }
-.carousel .list .item .content .watch img:nth-child(2) {
-  z-index: 2;
+
+/* Estilo da descrição */
+.description {
+  text-align: center;
+  margin-top: 10px;
+  color: #fff;
 }
-.carousel .list .item .content .buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 130px);
-  grid-template-rows: 40px;
-  gap: 5px;
+
+/* Botões de seleção de cor */
+.color-selection {
   margin-top: 20px;
 }
-.carousel .list .item .content button {
+
+.color-selection button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   border: none;
-  background-color: #eee;
-  letter-spacing: 3px;
-}
-.carousel .list .item .content button:nth-child(2) {
-  background-color: transparent;
-  color: #eee;
-  border: 1px solid #eee;
+  margin: 5px;
+  cursor: pointer;
 }
 
-@media (max-width: 1430px) {
-  .watch img:nth-child(1) {
-    transform: translateX(40px);
-  }
-  .watch img:nth-child(3) {
-    transform: translateX(-40px);
-  }
+.button-white { background-color: #FFFFFF; }
+.button-black { background-color: #000000; }
+.button-rose { background-color: #FFC0CB; }
+
+.background-container {
+  background-image: url('/images/fundo/w99_bg_white.jpg'); /* Fundo padrão */
+  background-size: cover; /* Cobre toda a área, mas pode cortar */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Não repete a imagem */
+  background-attachment: fixed; /* Fixa o fundo ao rolar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
-@media (max-width: 1200px) {
-  .watch img:nth-child(1) {
-    transform: translateX(80px);
+
+
+
+@media (max-width: 998px) and (min-width: 490px) {
+  .watches {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; /* Permite quebra de linha caso o espaço seja insuficiente */
   }
-  .watch img:nth-child(3) {
-    transform: translateX(-80px);
+
+  .watch-section {
+      flex: 1 1 45%; /* Ajusta a largura para ocupar até 45% da tela, mas permite que diminua conforme o espaço */
+      max-width: calc(50% - 10px); /* Limita a largura máxima para 50% menos margens */
+      margin: 5px;
+      box-sizing: border-box; /* Inclui padding e margem no cálculo de largura */
   }
-}
-@media (max-width: 1000px) {
-  .watch img:nth-child(1) {
-    transform: translateX(120px);
-  }
-  .watch img:nth-child(3) {
-    transform: translateX(-120px);
+
+  .watch-section .images img {
+      height: auto; /* Remove a altura fixa para que a imagem possa se ajustar ao contêiner */
+      width: 100%; /* Ajusta a largura ao contêiner, mantendo a proporção */
+      max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+
+/* Ajustes para telas menores que 490px */
+/* Ajustes para telas menores que 490px */
+@media (max-width: 489px) {
+  .watches {
+      flex-direction: row; /* Mantém os relógios em linha */
+      justify-content: center; /* Centraliza os relógios */
+      flex-wrap: nowrap; /* Não quebra para a próxima linha */
+      box-sizing: border-box
+  }
+
+  .watch-section {
+      flex: 0 0 auto; /* Impede que os relógios cresçam e os mantém em tamanho fixo */
+      width: auto; /* Permite que o tamanho se ajuste ao conteúdo */
+      margin: 0; /* Remove a margem entre os relógios */
+  }
+
+  .watch-section .images img {
+      height: 150px; /* Ajusta a altura das imagens para caber melhor na tela pequena */
+      max-width: 100%; /* Garante que as imagens não ultrapassem a largura do contêiner */
+  }
+
+  .color-selection {
+      margin-top: 20px; /* Espaço acima dos botões de seleção de cor */
+      display: flex; /* Alinha os botões de seleção em linha */
+      justify-content: center; /* Centraliza os botões */
+  }
+}
+
